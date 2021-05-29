@@ -87,7 +87,7 @@ class LoginActivity : AppCompatActivity() {
                 1300, // Window height
             )
             popupWindow.setWidth(width-50);
-                popupWindow.setFocusable(true);
+            popupWindow.setFocusable(true);
 
             // Set an elevation for the popup window
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
