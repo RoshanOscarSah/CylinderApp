@@ -1,96 +1,704 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:layout_margin="25dp"
     android:id="@+id/entryLayout"
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical">
 
-<!--customer/company-->
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:animateLayoutChanges="true">
-
-        <ImageView
-            android:id="@+id/ivToggleBackground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_toggle_background"/>
-
-        <ImageView
-            android:id="@+id/ivToggleActive"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_toggle_active"
-            android:layout_gravity="left"/>
-
-        <TextView
-            android:id="@+id/tvCustomer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="Customer"
-            android:padding="15dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/sofia_pro_regular_az"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_gravity="left|center"/>
-
-        <TextView
-            android:id="@+id/tvCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Company"
-            android:padding="15dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/sofia_pro_regular_az"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_gravity="right|center"/>
-
-    </FrameLayout>
-
-<!--    select customer-->
     <LinearLayout
-        android:id="@+id/llSelectCustomer"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/ic_rect_corner"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginTop="25dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:orientation="horizontal">
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
 
-        <TextView
-            android:id="@+id/tvCustomerOrCompany"
+    <!--customer/company-->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/ivToggleBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_toggle_background"/>
+
+            <ImageView
+                android:id="@+id/ivToggleActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_toggle_active"
+                android:layout_gravity="left"/>
+
+            <TextView
+                android:id="@+id/tvCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Customer"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sofia_pro_regular_az"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="left|center"/>
+
+            <TextView
+                android:id="@+id/tvCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="Company"
+                android:padding="15dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sofia_pro_regular_az"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center"/>
+
+        </FrameLayout>
+
+    <!--    customer/ company select -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:text="Select Customer"
-            android:contentDescription="Select Customer"
-            android:textColor="#4DFFFFFF"
-            android:fontFamily="@font/sofia_pro_regular_az"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_gravity="left|center"/>
+            android:orientation="vertical"
+            android:layout_marginTop="25dp">
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_weight="1"
-            android:src="@drawable/ic_address_card"
-            android:layout_gravity="right|center"/>
+        <!--    selected customer/ company-->
+            <LinearLayout
+                android:id="@+id/llNameSelected"
+                android:visibility="gone"
+                android:contentDescription="id_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="30dp"
+                android:orientation="vertical"
+                android:background="@drawable/ic_rect_corner">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Manoj Sah"
+                            android:contentDescription="Name"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textFontWeight="900"
+                            android:fontFamily="@font/sofia_pro_bold_az"
+                            android:textSize="22sp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Manoj Kirana Pasal"
+                            android:contentDescription="Company"
+                            android:textStyle="normal"
+                            android:textColor="#CCFFFFFF"
+                            android:fontFamily="@font/sofia_pro_light_az"
+                            android:textSize="16sp"
+                            android:letterSpacing="0.1"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chirauli, Bhokraha - 1"
+                            android:contentDescription="Address"
+                            android:textStyle="normal"
+                            android:textColor="#CCFFFFFF"
+                            android:fontFamily="@font/sofia_pro_light_az"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.2"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ivCall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:contentDescription="9801149729"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/ic_call"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:animateLayoutChanges="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="रू"
+                            android:fontFamily="@font/sofia_pro_regular_az"
+                            android:textStyle="normal"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_circle_bg"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-16dp"
+                        android:animateLayoutChanges="true">
+
+                        <ImageView
+                            android:layout_width="75dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_profile_databg"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="28640"
+                            android:fontFamily="@font/sofia_pro_regular_az"
+                            android:textStyle="normal"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"/>
+
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:animateLayoutChanges="true">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/ic_cylinder_empty"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_circle_bg"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-16dp"
+                        android:animateLayoutChanges="true">
+
+                        <ImageView
+                            android:layout_width="75dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_profile_databg"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="20"
+                            android:fontFamily="@font/sofia_pro_regular_az"
+                            android:textStyle="normal"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"/>
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:animateLayoutChanges="true">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_cylinder_leak"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_circle_bg"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="-16dp"
+                        android:animateLayoutChanges="true">
+
+                        <ImageView
+                            android:layout_width="75dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_profile_databg"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="20"
+                            android:fontFamily="@font/sofia_pro_regular_az"
+                            android:textStyle="normal"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"/>
+                    </FrameLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:layout_width="17dp"
+                                android:layout_height="17dp"
+                                android:src="@drawable/ic_cylinder_rate"
+                                android:layout_gravity="center"/>
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_circle_bg"/>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="-16dp"
+                            android:animateLayoutChanges="true">
+
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="1343"
+                                android:fontFamily="@font/sofia_pro_regular_az"
+                                android:textStyle="normal"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"/>
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/ic_cylinder_gas"
+                                android:layout_gravity="center"/>
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_circle_bg"/>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-16dp"
+                            android:layout_gravity="center"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="3458"
+                                android:fontFamily="@font/sofia_pro_regular_az"
+                                android:textStyle="normal"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"/>
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_empty_shape"
+                                android:layout_gravity="center"/>
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_circle_bg"/>
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-16dp"
+                            android:layout_gravity="center"
+                            android:animateLayoutChanges="true">
+
+                            <ImageView
+                                android:layout_width="75dp"
+                                android:layout_height="35dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="50"
+                                android:fontFamily="@font/sofia_pro_regular_az"
+                                android:textStyle="normal"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"/>
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        <!--    select customer/ company-->
+            <LinearLayout
+                android:id="@+id/llSelectCustomer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/ic_rect_corner"
+                android:layout_marginTop="-1dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvCustomerOrCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:text="Select Customer"
+                    android:contentDescription="Change Customer"
+                    android:textColor="#4DFFFFFF"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="left|center"/>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_address_card"
+                    android:layout_gravity="right|center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+<!--        FULL HALF EMPTY CYLINDER-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            android:background="@drawable/ic_rect_corner">
+
+            <LinearLayout
+                android:id="@+id/llFullSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/llFullSelectedImg"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_cylinder_full"/>
+                <TextView
+                    android:id="@+id/llFullSelectedTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FULL"
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textStyle="bold"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llHalfSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/llHalfSelectedImg"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_cylinder_half_fade"/>
+                <TextView
+                    android:id="@+id/llHalfSelectedTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Half"
+                    android:textColor="#4DFFFFFF"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textStyle="bold"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llEmptySelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/llEmptySelectedImg"
+                    android:layout_width="80dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/ic_cylinder_empty_fade"/>
+                <TextView
+                    android:id="@+id/llEmptySelectedTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EMPTY"
+                    android:textColor="#4DFFFFFF"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textStyle="bold"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+<!--        REGULAR LEAK SOLD-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/ic_rect_corner">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:padding="10dp"
+                android:layout_gravity="left">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rlc_toggle_background"/>
+
+                <ImageView
+                    android:id="@+id/ivRlctoggleActive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rlc_toggle_active"
+                    android:layout_gravity="left"/>
+
+                <TextView
+                    android:id="@+id/tvRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Regular"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="left|center"/>
+
+                <TextView
+                    android:id="@+id/tvLeak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Leak"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvSold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="Sold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="right|center"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:animateLayoutChanges="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_supertotal_bg"/>
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sofia_pro_regular_az"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

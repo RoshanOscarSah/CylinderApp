@@ -3,13 +3,17 @@ package com.eachut.cylinder.ui.home
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.eachut.cylinder.R
@@ -51,7 +55,7 @@ class   HomeFragment : Fragment() {
                 start()
             }
             binding.tvCustomerOrCompany.setText("Select Company")
-            binding.tvCustomerOrCompany.setContentDescription("Select Company")
+            binding.tvCustomerOrCompany.setContentDescription("Change Company")
         }
 
         binding.tvCustomer.setOnClickListener { view ->
@@ -68,12 +72,79 @@ class   HomeFragment : Fragment() {
                 start()
             }
             binding.tvCustomerOrCompany.setText("Select Customer")
-            binding.tvCustomerOrCompany.setContentDescription("Select Customer")
+            binding.tvCustomerOrCompany.setContentDescription("Change Customer")
         }
 
 //select customer
         binding.llSelectCustomer.setOnClickListener { view ->
             showPopup()
+        }
+
+//        call customer
+        binding.ivCall.setOnClickListener{ view ->
+            val number = binding.ivCall.getContentDescription()
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent)
+        }
+
+//Full HALF EMPTY CYLINDER
+        binding.llFullSelected.setOnClickListener{ view ->
+//        changing image
+            binding.llFullSelectedImg.setImageResource(R.drawable.ic_cylinder_full)
+            binding.llHalfSelectedImg.setImageResource(R.drawable.ic_cylinder_half_fade)
+            binding.llEmptySelectedImg.setImageResource(R.drawable.ic_cylinder_empty_fade)
+//        changing text opacity
+            binding.llFullSelectedTxt.setTextColor(Color.parseColor("#FFFFFF"));
+            binding.llHalfSelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+            binding.llEmptySelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+        }
+
+        binding.llHalfSelected.setOnClickListener{ view ->
+//        changing image
+            binding.llFullSelectedImg.setImageResource(R.drawable.ic_cylinder_full_fade)
+            binding.llHalfSelectedImg.setImageResource(R.drawable.ic_cylinder_half)
+            binding.llEmptySelectedImg.setImageResource(R.drawable.ic_cylinder_empty_fade)
+//        changing text opacity
+            binding.llFullSelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+            binding.llHalfSelectedTxt.setTextColor(Color.parseColor("#FFFFFF"));
+            binding.llEmptySelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+        }
+
+        binding.llEmptySelected.setOnClickListener{ view ->
+//        changing image
+            binding.llFullSelectedImg.setImageResource(R.drawable.ic_cylinder_full_fade)
+            binding.llHalfSelectedImg.setImageResource(R.drawable.ic_cylinder_half_fade)
+            binding.llEmptySelectedImg.setImageResource(R.drawable.ic_cylinder_empty_2)
+//        changing text opacity
+            binding.llFullSelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+            binding.llHalfSelectedTxt.setTextColor(Color.parseColor("#4DFFFFFF"));
+            binding.llEmptySelectedTxt.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+
+//REGULAR LEAK SOLD CYLINDER
+        binding.tvRegular.setOnClickListener{ view ->
+            //for sliding animation
+            ObjectAnimator.ofFloat(binding.ivRlctoggleActive, "translationX", 0f).apply {
+                duration = 200
+                start()
+            }
+        }
+
+        binding.tvLeak.setOnClickListener{ view ->
+            //for sliding animation
+            ObjectAnimator.ofFloat(binding.ivRlctoggleActive, "translationX", 235f).apply {
+                duration = 200
+                start()
+            }
+        }
+
+        binding.tvSold.setOnClickListener{ view ->
+            //for sliding animation
+            ObjectAnimator.ofFloat(binding.ivRlctoggleActive, "translationX", 470f).apply {
+                duration = 200
+                start()
+            }
         }
 
 
@@ -120,9 +191,11 @@ class   HomeFragment : Fragment() {
         val llNameSelected = alertDialog.findViewById(R.id.llNameSelected) as LinearLayout
         llNameSelected.setOnClickListener(View.OnClickListener { //do something here
             alertDialog.dismiss()
-            val idNameList = llNameSelected.getContentDescription()
-            binding.tvCustomerOrCompany.setText(idNameList)
+            val ChangeCustomerOrCompany = binding.tvCustomerOrCompany.getContentDescription()
+            binding.tvCustomerOrCompany.setText(ChangeCustomerOrCompany)
+            binding.llNameSelected.isVisible = true
         })
+
 
 
     }
