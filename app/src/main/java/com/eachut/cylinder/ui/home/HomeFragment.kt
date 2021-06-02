@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.eachut.cylinder.LoadingActivity
 import com.eachut.cylinder.R
 import com.eachut.cylinder.databinding.FragmentHomeBinding
 
@@ -483,7 +484,10 @@ class   HomeFragment : Fragment() {
 
 
 
+// GO
+        binding.llGo.setOnClickListener { view ->
 
+        }
 
 //        val textView: TextView = binding.textHome
 //        homeViewModel.text.observe(viewLifecycleOwner, Observer {

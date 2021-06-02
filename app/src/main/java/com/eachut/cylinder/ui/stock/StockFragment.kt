@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,10 +32,68 @@ class StockFragment : Fragment() {
         _binding = FragmentStockBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textStock
-        stockViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//EDIT STOCK
+        binding.flStockEdit.setOnClickListener { view ->
+            binding.flStockEditCancal.isVisible = true
+            binding.flStockEditDone.isVisible = true
+            binding.flStockEdit.isVisible = false
+
+            binding.etPrimaF.setFocusableInTouchMode(true)
+            binding.etKamakhyaF.setFocusableInTouchMode(true)
+            binding.etSuvidhaF.setFocusableInTouchMode(true)
+            binding.etOthersF.setFocusableInTouchMode(true)
+            binding.etPrimaH.setFocusableInTouchMode(true)
+            binding.etKamakhyaH.setFocusableInTouchMode(true)
+            binding.etSuvidhaH.setFocusableInTouchMode(true)
+            binding.etOthersH.setFocusableInTouchMode(true)
+            binding.etPrimaE.setFocusableInTouchMode(true)
+            binding.etKamakhyaE.setFocusableInTouchMode(true)
+            binding.etSuvidhaE.setFocusableInTouchMode(true)
+            binding.etOthersE.setFocusableInTouchMode(true)
+        }
+
+        binding.flStockEditCancal.setOnClickListener { view ->
+            binding.flStockEditCancal.isVisible = false
+            binding.flStockEditDone.isVisible = false
+            binding.flStockEdit.isVisible = true
+
+            binding.etPrimaF.setFocusable(false)
+            binding.etKamakhyaF.setFocusable(false)
+            binding.etSuvidhaF.setFocusable(false)
+            binding.etOthersF.setFocusable(false)
+            binding.etPrimaH.setFocusable(false)
+            binding.etKamakhyaH.setFocusable(false)
+            binding.etSuvidhaH.setFocusable(false)
+            binding.etOthersH.setFocusable(false)
+            binding.etPrimaE.setFocusable(false)
+            binding.etKamakhyaE.setFocusable(false)
+            binding.etSuvidhaE.setFocusable(false)
+            binding.etOthersE.setFocusable(false)
+        }
+
+        binding.flStockEditDone.setOnClickListener { view ->
+            binding.flStockEditCancal.isVisible = false
+            binding.flStockEditDone.isVisible = false
+            binding.flStockEdit.isVisible = true
+
+            binding.etPrimaF.setFocusable(false)
+            binding.etKamakhyaF.setFocusable(false)
+            binding.etSuvidhaF.setFocusable(false)
+            binding.etOthersF.setFocusable(false)
+            binding.etPrimaH.setFocusable(false)
+            binding.etKamakhyaH.setFocusable(false)
+            binding.etSuvidhaH.setFocusable(false)
+            binding.etOthersH.setFocusable(false)
+            binding.etPrimaE.setFocusable(false)
+            binding.etKamakhyaE.setFocusable(false)
+            binding.etSuvidhaE.setFocusable(false)
+            binding.etOthersE.setFocusable(false)
+        }
+
+//        val textView: TextView = binding.textStock
+//        stockViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 
