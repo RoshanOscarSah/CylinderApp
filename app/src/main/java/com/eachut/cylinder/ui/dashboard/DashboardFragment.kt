@@ -1,6 +1,8 @@
 package com.eachut.cylinder.ui.dashboard
 
 import android.R.interpolator.linear
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -31,6 +33,14 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+//        PHONE CALL NEXT ORDER
+        binding.flPhoneNextOrder.setOnClickListener{ view ->
+            val number = binding.flPhoneNextOrder.getContentDescription()
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent)
+        }
 
 // BEST SELLER
         var primaTotalSell = 3544.toFloat()

@@ -1583,6 +1583,7 @@
             android:backgroundTint="#940000"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:elevation="2dp"
             android:layout_gravity="center"
             android:orientation="horizontal">
 

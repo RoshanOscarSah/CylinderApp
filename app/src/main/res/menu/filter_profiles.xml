@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/iNameaz"
+        android:title="Name A-Z"/>
+
+    <item
+        android:id="@+id/iNameza"
+        android:title="Name Z-A" />
+
+    <item
+        android:id="@+id/iAmountDue"
+        android:title="Amount Due" />
+
+    <item
+        android:id="@+id/iInactive"
+        android:title="Inactive" />
+
+    <item
+        android:id="@+id/iMostSold"
+        android:title="Most Sold" />
+
+</menu>

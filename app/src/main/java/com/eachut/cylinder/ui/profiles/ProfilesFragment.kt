@@ -1,13 +1,17 @@
 package com.eachut.cylinder.ui.profiles
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.FrameLayout
+import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.eachut.cylinder.R
 import com.eachut.cylinder.databinding.FragmentProfilesBinding
 import com.eachut.cylinder.ui.profiles.ProfilesViewModel
 
@@ -31,10 +35,58 @@ class ProfilesFragment : Fragment() {
         _binding = FragmentProfilesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textProfiles
-        profilesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//customer/company/member
+        binding.tvCustomerP.setOnClickListener { view ->
+            //for setting gravity
+            val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = Gravity.LEFT
+            binding.ivToggleActiveP.setLayoutParams(params);
+        }
+
+        binding.tvCompanyP.setOnClickListener { view ->
+            //for setting gravity
+            val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = Gravity.CENTER
+            binding.ivToggleActiveP.setLayoutParams(params);
+        }
+
+        binding.tvMemberP.setOnClickListener { view ->
+            //for setting gravity
+            val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = Gravity.RIGHT
+            binding.ivToggleActiveP.setLayoutParams(params);
+        }
+
+//search
+        binding.ivSearchProfiles.setOnClickListener { view ->
+            binding.flTab3.isVisible = false
+            binding.ivSearchProfiles.isVisible = false
+            binding.llsearchBox.isVisible = true
+            binding.ivCancalSearchProfiles.isVisible = true
+        }
+
+        binding.ivCancalSearchProfiles.setOnClickListener { view ->
+            binding.flTab3.isVisible = true
+            binding.ivSearchProfiles.isVisible = true
+            binding.llsearchBox.isVisible = false
+            binding.ivCancalSearchProfiles.isVisible = false
+        }
+
+// FILTER
+        binding.ivFilterProfiles.setOnClickListener { view ->
+
+        }
+
+//        val textView: TextView = binding.textProfiles
+//        profilesViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 
@@ -42,4 +94,5 @@ class ProfilesFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

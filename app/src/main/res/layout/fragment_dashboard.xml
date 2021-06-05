@@ -24,7 +24,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:background="@drawable/dashoard_widget"
                 android:backgroundTint="#f05525"
                 android:orientation="vertical"
@@ -95,7 +95,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:background="@drawable/dashoard_widget"
                 android:backgroundTint="#3ac4ce"
                 android:orientation="vertical"
@@ -380,8 +380,11 @@
             android:background="@drawable/dashoard_widget">
 
             <FrameLayout
+                android:id="@+id/flPhoneNextOrder"
+                android:contentDescription="9801149729"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:animateLayoutChanges="true">
 
                 <ImageView
@@ -412,7 +415,7 @@
                     android:fontFamily="@font/sofia_pro_regular_az"
                     android:textSize="16dp"
                     android:textColor="@color/white"
-                    android:letterSpacing="0.7"/>
+                    android:letterSpacing="0.6"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
