@@ -1,9 +1,11 @@
 package com.eachut.cylinder.ui.notifications
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -51,8 +53,59 @@ class NotificationsFragment : Fragment() {
 
 // FILTER
         binding.ivFilterProfiles.setOnClickListener { view ->
-            loadPopUpMenu()
+//            loadPopUpMenu()
         }
+
+//        ALL SCHEDULE CLICK
+        binding.tvNotiAll.setOnClickListener { view ->
+            binding.svNotificationView.isVisible = true
+            binding.svScheduleView.isVisible = false
+
+            val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = Gravity.LEFT
+            binding.ivToggleActiveNoti.setLayoutParams(params);
+
+        }
+
+        binding.tvNotiSchedule.setOnClickListener { view ->
+            binding.svScheduleView.isVisible = true
+            binding.svNotificationView.isVisible = false
+
+            val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.gravity = Gravity.RIGHT
+            binding.ivToggleActiveNoti.setLayoutParams(params);
+        }
+
+        binding.lltodayToggle.setOnClickListener { view ->
+            val maxormin = binding.lltodayToggle.getContentDescription()
+            if (maxormin == "max") {
+                binding.lltodayToggle.setContentDescription("min")
+                binding.lltodayDiscription.isVisible = false
+                binding.lltodayToggleUpDown.animate().rotation(0f).start();
+            }else{
+                binding.lltodayToggle.setContentDescription("max")
+                binding.lltodayDiscription.isVisible = true
+                binding.lltodayToggleUpDown.animate().rotation(180f).start();
+            }
+        }
+
+        binding.lllaterToggle.setOnClickListener { view ->
+            val maxormin = binding.lllaterToggle.getContentDescription()
+            if (maxormin == "max") {
+                binding.lllaterToggle.setContentDescription("min")
+                binding.lllaterDiscription.isVisible = false
+                binding.lllaterToggleUpDown.animate().rotation(0f).start();
+            }else{
+                binding.lllaterToggle.setContentDescription("max")
+                binding.lllaterDiscription.isVisible = true
+                binding.lllaterToggleUpDown.animate().rotation(180f).start();
+            }
+        }
+
 
 //        val textView: TextView = binding.textNotifications
 //        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
@@ -67,26 +120,26 @@ class NotificationsFragment : Fragment() {
     }
 
     // Load pop up menu image upload
-    private fun loadPopUpMenu() {
-        val popupMenu = PopupMenu(this.activity, binding.ivFilterProfiles)
-        popupMenu.menuInflater.inflate(R.menu.filter_profiles, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.iNameaz ->
-                    iNameaz()
-                R.id.iNameza ->
-                    iNameza()
-                R.id.iAmountDue ->
-                    iAmountDue()
-                R.id.iInactive ->
-                    iInactive()
-                R.id.iMostSold ->
-                    iMostSold()
-            }
-            true
-        }
-        popupMenu.show()
-    }
+//    private fun loadPopUpMenu() {
+//        val popupMenu = PopupMenu(this.activity, binding.ivFilterProfiles)
+//        popupMenu.menuInflater.inflate(R.menu.filter_profiles, popupMenu.menu)
+//        popupMenu.setOnMenuItemClickListener { item ->
+//            when (item.itemId) {
+//                R.id.iNameaz ->
+//                    iNameaz()
+//                R.id.iNameza ->
+//                    iNameza()
+//                R.id.iAmountDue ->
+//                    iAmountDue()
+//                R.id.iInactive ->
+//                    iInactive()
+//                R.id.iMostSold ->
+//                    iMostSold()
+//            }
+//            true
+//        }
+//        popupMenu.show()
+//    }
 
 
 }
